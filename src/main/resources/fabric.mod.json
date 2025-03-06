@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "gems_mod",
+  "version": "${version}",
+  "name": "gems_mod",
+  "description": "my first mod",
+  "authors": [],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "icon": "assets/gems_mod/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "my.hector_tolobolo.gems_mod.client.Gems_modClient"
+    ],
+    "main": [
+      "my.hector_tolobolo.gems_mod.Gems_mod"
+    ]
+  },
+  "mixins": [
+    "gems_mod.mixins.json",
+    {
+      "config": "gems_mod.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
