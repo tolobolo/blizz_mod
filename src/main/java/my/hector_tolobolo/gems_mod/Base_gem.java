@@ -14,25 +14,24 @@ public class Base_gem extends Item {
     public Base_gem(Settings settings) {
         super(settings);
     }
+    public static int HEALTH = 3;
 
+    public static void control_HEALTH(){
+        if (HEALTH < 0) {
+            HEALTH = 0;
+            //change image and sette destroy variabelen
+        }else {
+            return;
+        }
+    }
 
     public static void register() {
         ServerLivingEntityEvents.AFTER_DEATH.register((entity, damageSource) -> {
             if (entity instanceof PlayerEntity player) {
-                player.sendMessage(Text.of("du er død"));
+                HEALTH -= 1;
+                control_HEALTH();
+                player.sendMessage(Text.of("du er død " + HEALTH ));
 
-            }
-
-            ItemStack gem = new ItemStack(STRENGTH_GEM);
-
-            //set keepinventory
-            NbtCompound tag = new NbtCompound();
-            tag.putBoolean("Unbrekable", true);
-            tag.putBoolean("keep", true);
-            gem.setNbt(tag);
-
-            if (entity instanceof PlayerEntity player && !player.getInventory().contains(gem)){
-                player.getInventory().insertStack(gem);
             }
         });
     }
