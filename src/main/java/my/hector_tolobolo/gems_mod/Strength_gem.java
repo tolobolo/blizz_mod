@@ -10,6 +10,10 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 import net.minecraft.text.Text;
 
+import static my.hector_tolobolo.gems_mod.Gems_mod.LOGGER;
+
+import static my.hector_tolobolo.gems_mod.Gems_mod.player;
+
 public class Strength_gem extends Base_gem {
     public Strength_gem(Settings settings) {
         super(settings);
@@ -22,13 +26,12 @@ public class Strength_gem extends Base_gem {
             user.addStatusEffect(new StatusEffectInstance(
                     StatusEffects.STRENGTH, 200, 3));
         }
-
-
         return TypedActionResult.success(user.getStackInHand(hand));
     }
 
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
+
         if (entity instanceof PlayerEntity player && !world.isClient) {
             if (player.getOffHandStack() == stack) {
                 player.addStatusEffect(new StatusEffectInstance(
