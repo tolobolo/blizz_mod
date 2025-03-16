@@ -7,6 +7,8 @@ import net.minecraft.inventory.Inventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.text.Text;
@@ -14,6 +16,8 @@ import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 
 import static my.hector_tolobolo.gems_mod.Gems_mod.LOGGER;
+import static my.hector_tolobolo.gems_mod.Gems_mod.STRENGTH_GEM;
+
 // health system
 public class Base_gem extends Item {
     public Base_gem(Settings settings) {
@@ -36,6 +40,7 @@ public class Base_gem extends Item {
                 HEALTH -= 1;
                 control_HEALTH();
                 player.sendMessage(Text.of("du er død " + HEALTH ));
+
 
 
 
