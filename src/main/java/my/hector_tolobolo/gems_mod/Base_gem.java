@@ -36,11 +36,19 @@ public class Base_gem extends Item {
     }
     public static void register() {
         ServerLivingEntityEvents.AFTER_DEATH.register((entity, damageSource) -> {
+            ItemStack stack = new ItemStack(STRENGTH_GEM);
+            NbtCompound nbt = stack.getOrCreateNbt();
+            int health = (int) HEALTH;
             if (entity instanceof PlayerEntity player) {
                 HEALTH -= 1;
                 control_HEALTH();
                 player.sendMessage(Text.of("du er død " + HEALTH ));
-
+                LOGGER.error(String.valueOf(nbt));
+                nbt.putInt("custom_health_data",health);
+                LOGGER.error(String.valueOf(nbt));
+                ItemStack stacke = new ItemStack(STRENGTH_GEM);
+                NbtCompound nbtt = stacke.getOrCreateNbt();
+                LOGGER.error(String.valueOf(nbtt));
 
 
 

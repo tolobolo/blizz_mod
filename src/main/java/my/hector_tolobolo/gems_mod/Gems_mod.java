@@ -36,6 +36,8 @@ public class Gems_mod implements ModInitializer {
     public static ServerPlayerEntity player;
     public static final String NBT_KEY = "received_strength_gem";
     private static Boolean check_gem = false;
+    private ItemStack stack = new ItemStack(STRENGTH_GEM);
+    private NbtCompound nbt = stack.getOrCreateNbt();
 
     @Override
     public void onInitialize() {
@@ -49,9 +51,10 @@ public class Gems_mod implements ModInitializer {
         });
 
         Base_gem.register();
-        Registry.register(Registries.ITEM, new Identifier("gems_mod", "strength_gem"+HEALTH), STRENGTH_GEM);
+        Registry.register(Registries.ITEM, new Identifier("gems_mod", "strength_gem"), STRENGTH_GEM);
+        nbt.putInt("custom_health_data", HEALTH);
+        stack.setNbt(nbt);
         Registry.register(Registries.ITEM, new Identifier("gems_mod", "speed_gem"), SPEED_GEM);
-
         LOGGER.error("hello");
         does_player_have_gem();
     }
@@ -62,7 +65,6 @@ public class Gems_mod implements ModInitializer {
         }
         check_gem = false;
         LOGGER.error("CHECK GEM "+ check_gem);
-        ItemStack stack = new ItemStack(STRENGTH_GEM);
         for (int i = 0; i > player.getInventory().size(); i++){
             if (player.getInventory().getStack(i) == stack){
                 LOGGER.error("HAVE GEM");
