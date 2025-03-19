@@ -4,7 +4,7 @@
     "layer0": "gems_mod:item/strength_gem2"
   },
   "override": [
-    {"predicate": {"custom_health_data": 1}, "model": "gems_mod:item/strength_gem1"}, //models
+    {"predicate": {"custom_health_data": 1}, "model": "gems_mod:item/strength_gem1"},
     {"predicate": {"custom_health_data": 0},"model": "gems_mod:item/strength_gem0"}
   ]
 }
