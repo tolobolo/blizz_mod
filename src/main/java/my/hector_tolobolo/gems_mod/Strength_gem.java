@@ -5,14 +5,11 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
-import net.minecraft.text.Text;
 
-import static my.hector_tolobolo.gems_mod.Gems_mod.LOGGER;
-
-import static my.hector_tolobolo.gems_mod.Gems_mod.player;
 
 public class Strength_gem extends Base_gem {
     public Strength_gem(Settings settings) {
@@ -21,7 +18,7 @@ public class Strength_gem extends Base_gem {
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        if (hand == Hand.MAIN_HAND && !world.isClient)  {
+        if (hand == Hand.MAIN_HAND && !world.isClient) {
             user.sendMessage(Text.of("strong"));
             user.addStatusEffect(new StatusEffectInstance(
                     StatusEffects.STRENGTH, 200, 3));
