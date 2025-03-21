@@ -47,12 +47,10 @@ public class Gems_mod implements ModInitializer {
     }
 
     private void does_player_have_gem(ServerPlayerEntity player) {
-
-
-        for (int i = 0; i > player.getInventory().size(); i++) {
+        for (int i = 0; i < player.getInventory().size(); i++) {
             Item item = player.getInventory().getStack(i).getItem();
-            if (item == STRENGTH_GEM) {
-                LOGGER.error("HAVE GEM {}, {}", item);
+            if (item.equals(STRENGTH_GEM)) {
+                LOGGER.error("HAVE GEM {} i {},", item, i);
                 return;
             }
         }
