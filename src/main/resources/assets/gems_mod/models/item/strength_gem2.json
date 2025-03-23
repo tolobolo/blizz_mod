@@ -6,15 +6,22 @@
   "overrides": [
     {
       "predicate": {
-        "custom_health_data": 1
+        "custom_model_data": 0
+      },
+      "model": "gems_mod:item/strength_gem0"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 1
       },
       "model": "gems_mod:item/strength_gem1"
     },
     {
       "predicate": {
-        "custom_health_data": 0
+        "custom_model_data": 2
       },
-      "model": "gems_mod:item/strength_gem0"
+      "model": "gems_mod:item/strength_gem2"
     }
   ]
 }
+
